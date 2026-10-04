@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Кыз узатуу | Бегимай</title>
+
+<meta name="description" content="Бегимайдын Кыз узатуу тоюна чакыруу">
+<meta name="theme-color" content="#f8f1e7">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   Негизги өзгөрмөлөр
+========================================================= */
+
+:root {
+    --cream: #f8f1e7;
+    --cream2: #fffaf4;
+    --white: #ffffff;
+    --gold: #c8a66a;
+    --gold2: #a98343;
+    --brown: #5d4a39;
+    --dark: #3f352c;
+    --light-text: #8d7b68;
+    --border: rgba(180,145,88,.35);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================================================
+   Баракчанын жалпы стили
+========================================================= */
+
+.page {
+    width: 100%;
+    overflow: hidden;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    padding: 90px 20px;
+}
+
+.container {
+    width: min(100%, 900px);
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+/* =========================================================
+   Ornament
+========================================================= */
+
+.ornament {
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 7px;
+    margin: 15px 0;
+}
+
+.ornament-line {
+    width: 100px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto;
+}
+
+/* =========================================================
+   INTRO / OPENING
+========================================================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.9),
+            rgba(248,241,231,.98)
+        );
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-card {
+    width: min(90%, 450px);
+    min-height: 650px;
+
+    padding: 55px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.8),
+            rgba(255,250,244,.95)
+        );
+
+    box-shadow:
+        0 20px 70px rgba(100,75,45,.12);
+
+    position: relative;
+}
+
+.opening-card::before,
+.opening-card::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--gold);
+}
+
+.opening-card::before {
+    top: 18px;
+    left: 18px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.opening-card::after {
+    right: 18px;
+    bottom: 18px;
+    border-left: 0;
+    border-top: 0;
+}
+
+.small-title {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold2);
+}
+
+.opening-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 15vw, 90px);
+    line-height: .9;
+    font-weight: 500;
+    margin: 25px 0 10px;
+    color: var(--brown);
+}
+
+.opening-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(45px, 12vw, 70px);
+    color: var(--gold2);
+}
+
+.opening-date {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.open-btn {
+    margin-top: 40px;
+
+    border: 1px solid var(--gold);
+    background: transparent;
+
+    color: var(--brown);
+
+    padding: 16px 35px;
+
+    cursor: pointer;
+
+    letter-spacing: 3px;
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.open-btn:hover {
+    background: var(--gold);
+    color: white;
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+    position: fixed;
+    z-index: 1000;
+
+    right: 18px;
+    bottom: 18px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--gold);
+
+    background: rgba(255,255,255,.9);
+
+    color: var(--gold2);
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.1);
+
+    font-size: 20px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 18px;
+
+    background: var(--cream);
+}
+
+.hero-frame {
+    position: relative;
+
+    width: min(100%, 600px);
+
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    border-radius: 300px 300px 0 0;
+
+    box-shadow:
+        0 20px 80px rgba(70,50,30,.15);
+}
+
+.hero-frame img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.hero-frame::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(30,20,10,.65),
+            transparent 55%
+        );
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 45px 20px;
+}
+
+.hero-small {
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 15vw, 100px);
+    font-weight: 500;
+    line-height: .9;
+    margin: 15px 0;
+}
+
+.hero-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 14vw, 85px);
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title small {
+    color: var(--gold2);
+    letter-spacing: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 10vw, 70px);
+    font-weight: 500;
+    color: var(--brown);
+    margin-top: 10px;
+}
+
+/* =========================================================
+   INVITATION TEXT
+========================================================= */
+
+.invitation {
+    background: var(--cream2);
+}
+
+.invitation-box {
+    max-width: 750px;
+    margin: auto;
+
+    text-align: center;
+
+    padding: 60px 25px;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.invitation-box p {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(23px, 5vw, 30px);
+
+    line-height: 1.55;
+
+    color: var(--brown);
+}
+
+.parents {
+    margin-top: 35px;
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 40px;
+
+    color: var(--gold2);
+}
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.main-photo {
+    padding-top: 20px;
+}
+
+.photo-card {
+    max-width: 650px;
+    margin: auto;
+
+    position: relative;
+}
+
+.photo-card img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 850px;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 25px 70px rgba(70,50,30,.16);
+}
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.date-section {
+    background: var(--cream2);
+}
+
+.date-card {
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 45px 25px;
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.month {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--gold2);
+}
+
+.day {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 120px;
+
+    line-height: .9;
+
+    color: var(--brown);
+
+    margin: 15px 0;
+}
+
+.time {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 30px;
+
+    color: var(--gold2);
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 45px;
+}
+
+.count-box {
+    padding: 18px 5px;
+
+    background: rgba(255,255,255,.65);
+
+    border: 1px solid var(--border);
+}
+
+.count-number {
+    display: block;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 35px;
+
+    color: var(--brown);
+}
+
+.count-label {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: var(--light-text);
+}
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-box {
+    max-width: 650px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 55px 25px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.45);
+}
+
+.location-icon {
+    font-size: 40px;
+}
+
+.location-name {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    margin: 15px 0 8px;
+
+    color: var(--brown);
+}
+
+.address {
+    color: var(--light-text);
+
+    line-height: 1.7;
+}
+
+.map-btn {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 14px 30px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: var(--gold2);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   PROGRAM
+========================================================= */
+
+.program {
+    background: var(--cream2);
+}
+
+.timeline {
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 90px 1fr;
+
+    gap: 20px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline-time {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    color: var(--gold2);
+}
+
+.timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 27px;
+
+    color: var(--brown);
+}
+
+.timeline-text {
+    margin-top: 5px;
+
+    color: var(--light-text);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+
+    cursor: pointer;
+
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item.large {
+    grid-column: span 2;
+
+    aspect-ratio: 16 / 10;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9998;
+
+    background: rgba(20,15,10,.92);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+}
+
+.lightbox.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 95%;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+}
+
+.close-lightbox {
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   BLESSING
+========================================================= */
+
+.blessing {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.8),
+            var(--cream)
+        );
+}
+
+.blessing-box {
+    max-width: 750px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 60px 25px;
+}
+
+.blessing-quote {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(25px, 5vw, 36px);
+
+    line-height: 1.55;
+
+    color: var(--brown);
+}
+
+.blessing-name {
+    font-family: 'Great Vibes', cursive;
+
+    color: var(--gold2);
+
+    font-size: 40px;
+
+    margin-top: 30px;
+}
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp {
+    background: var(--cream2);
+}
+
+.form {
+    max-width: 600px;
+
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: var(--gold2);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 15px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    outline: none;
+
+    color: var(--brown);
+
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+
+    background: var(--gold2);
+
+    color: white;
+
+    cursor: pointer;
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    background: var(--brown);
+}
+
+.form-message {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: var(--gold2);
+
+    display: none;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final {
+    padding: 0;
+
+    position: relative;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.final img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.final::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(35,25,15,.48);
+}
+
+.final-content {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 30px;
+}
+
+.final-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(55px, 13vw, 90px);
+
+    font-weight: 500;
+}
+
+.final-content p {
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.final-name {
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 60px;
+
+    margin-top: 20px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: var(--dark);
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* =========================================================
+   FLOATING PETALS
+========================================================= */
+
+.petal {
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: .55;
+
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .section {
+        padding: 70px 16px;
+    }
+
+    .hero-frame {
+        min-height: 82vh;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .count-number {
+        font-size: 28px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .gallery {
+        gap: 6px;
+    }
+
+    .opening-card {
+        min-height: 600px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     OPENING
+========================================================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-card">
+
+        <div class="small-title">
+            Сиздерди чакырабыз
+        </div>
+
+        <div class="ornament">
+            ✦ ❈ ✦
+        </div>
+
+        <div class="opening-title">
+            КЫЗ<br>УЗАТУУ
+        </div>
+
+        <div class="opening-name">
+            Бегимай
+        </div>
+
+        <div class="ornament-line"></div>
+
+        <div class="opening-date">
+            30 • 10 • 2026
+        </div>
+
+        <button class="open-btn" onclick="openInvitation()">
+            ЧАКЫРУУНУ АЧУУ
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<audio id="music" loop preload="auto">
+    <source src="Nelya-Kyz-uzatuu.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()"
+    aria-label="Музыка">
+    ♫
+</button>
+
+
+<main class="page">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-frame reveal">
+
+        <img
+            src="photo1.jpg"
+            alt="Бегимай">
+
+        <div class="hero-text">
+
+            <div class="hero-small">
+                КЫЗ УЗАТУУ ТОЮНА
+            </div>
+
+            <div class="hero-title">
+                ЧАКЫРУУ
+            </div>
+
+            <div class="hero-name">
+                Бегимай
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INVITATION
+========================================================= -->
+
+<section class="section invitation">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                АРДАктуу КОНАКТАР
+            </small>
+
+            <h2>
+                Сиздерди күтөбүз
+            </h2>
+
+            <div class="ornament">
+                ✦ ❈ ✦
+            </div>
+
+        </div>
+
+
+        <div class="invitation-box reveal">
+
+            <p>
+                Урматтуу туугандар, куда-сөөктөр,
+                жакындар жана достор!
+            </p>
+
+            <br>
+
+            <p>
+                Сиздерди сүйүктүү кызыбыз
+                <strong>Бегимайдын</strong>
+                кыз узатуу тоюна арналган
+                ак дасторкондон даам сызып,
+                кубанычыбызды тең бөлүшүп,
+                баталарыңыздарды берүүгө
+                чакырабыз.
+            </p>
+
+            <div class="parents">
+                Эршат & Кымбат
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN PHOTO
+========================================================= -->
+
+<section class="section main-photo">
+
+    <div class="container">
+
+        <div class="photo-card reveal">
+
+            <img
+                src="photo2.jpg"
+                alt="Бегимайдын сүрөтү">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DATE
+========================================================= -->
+
+<section class="section date-section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                БАКТЫЛУУ КҮНҮБҮЗ
+            </small>
+
+            <h2>
+                Той күнү
+            </h2>
+
+        </div>
+
+
+        <div class="date-card reveal">
+
+            <div class="month">
+                ОКТЯБРЬ 2026
+            </div>
+
+            <div class="day">
+                30
+            </div>
+
+            <div class="ornament">
+                ✦
+            </div>
+
+            <div class="time">
+                Саат 11:00
+            </div>
+
+
+            <!-- COUNTDOWN -->
+
+            <div class="countdown">
+
+                <div class="count-box">
+                    <span
+                        class="count-number"
+                        id="days">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        КҮН
+                    </span>
+                </div>
+
+
+                <div class="count-box">
+                    <span
+                        class="count-number"
+                        id="hours">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        СААТ
+                    </span>
+                </div>
+
+
+                <div class="count-box">
+                    <span
+                        class="count-number"
+                        id="minutes">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        МҮНӨТ
+                    </span>
+                </div>
+
+
+                <div class="count-box">
+                    <span
+                        class="count-number"
+                        id="seconds">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        СЕКУНД
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                ТОЙ ӨТҮҮЧҮ ЖЕР
+            </small>
+
+            <h2>
+                Дарегибиз
+            </h2>
+
+        </div>
+
+
+        <div class="location-box reveal">
+
+            <div class="location-icon">
+                ♡
+            </div>
+
+            <div class="location-name">
+                Орнок айылы
+            </div>
+
+            <div class="address">
+
+                Керимбаев көчөсү,<br>
+                44-үй
+
+            </div>
+
+
+            <a
+                class="map-btn"
+                href="https://www.google.com/maps/search/?api=1&query=Орнок+айылы+Керимбаев+көчөсү+44"
+                target="_blank">
+
+                КАРТАДАН КӨРҮҮ
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROGRAM
+========================================================= -->
+
+<section class="section program">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                БИЗ МЕНЕН БОЛГУЛА
+            </small>
+
+            <h2>
+                Тойдун программасы
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-time">
+                    11:00
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        Конокторду тосуп алуу
+                    </div>
+
+                    <div class="timeline-text">
+                        Урматтуу конокторубузду
+                        жылуу маанайда тосуп алабыз.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-time">
+                    12:00
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        Ак дасторкон
+                    </div>
+
+                    <div class="timeline-text">
+                        Даамдуу тамактар жана
+                        жакшы каалоолор менен
+                        бир дасторкондо чогуу болобуз.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-time">
+                    13:00
+                </div>
+
+                <div>
+
+                    <div class="timeline-title">
+                        Кыз узатуу
+                    </div>
+
+                    <div class="timeline-text">
+                        Кызга ак жол каалап,
+                        батабызды беребиз.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                ЭСТЕЛИК
+            </small>
+
+            <h2>
+                Биздин көз ирмемдер
+            </h2>
+
+            <div class="ornament">
+                ✦ ❈ ✦
+            </div>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div
+                class="gallery-item large reveal"
+                onclick="openImage('photo1.jpg')">
+
+                <img
+                    src="photo1.jpg"
+                    alt="Сүрөт 1">
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal"
+                onclick="openImage('photo2.jpg')">
+
+                <img
+                    src="photo2.jpg"
+                    alt="Сүрөт 2">
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal"
+                onclick="openImage('photo3.jpg')">
+
+                <img
+                    src="photo3.jpg"
+                    alt="Сүрөт 3">
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal"
+                onclick="openImage('photo4.jpg')">
+
+                <img
+                    src="photo4.jpg"
+                    alt="Сүрөт 4">
+
+            </div>
+
+
+            <div
+                class="gallery-item reveal"
+                onclick="openImage('photo5.jpg')">
+
+                <img
+                    src="photo5.jpg"
+                    alt="Сүрөт 5">
+
+            </div>
+
+
+            <div
+                class="gallery-item large reveal"
+                onclick="openImage('photo6.jpg')">
+
+                <img
+                    src="photo6.jpg"
+                    alt="Сүрөт 6">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeImage()">
+
+    <span
+        class="close-lightbox">
+        ×
+    </span>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Чоң сүрөт">
+
+</div>
+
+
+<!-- =========================================================
+     BLESSING
+========================================================= -->
+
+<section class="section blessing">
+
+    <div class="container">
+
+        <div class="blessing-box reveal">
+
+            <div class="ornament">
+                ❈
+            </div>
+
+            <div class="blessing-quote">
+
+                «Кыз — төрдүн көркү,
+                үйдүн куту.
+                Ак жолтой болуп,
+                барган жеринен
+                бакыт тапсын!»
+
+            </div>
+
+            <div class="ornament">
+                ✦
+            </div>
+
+            <div class="blessing-name">
+                Бегимай
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RSVP
+========================================================= -->
+
+<section class="section rsvp">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                СИЗДЕР ҮЧҮН
+            </small>
+
+            <h2>
+                Келериңизди билдириңиз
+            </h2>
+
+        </div>
+
+
+        <form
+            class="form reveal"
+            id="rsvpForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    АТЫҢЫЗ
+                </label>
+
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Атыңызды жазыңыз"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    КЕЛЕСИЗБИ?
+                </label>
+
+                <select
+                    id="attendance"
+                    required>
+
+                    <option value="">
+                        Тандаңыз
+                    </option>
+
+                    <option value="Ооба, сөзсүз келем">
+                        Ооба, сөзсүз келем
+                    </option>
+
+                    <option value="Келе албайм">
+                        Келе албайм
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    КААЛООҢУЗ
+                </label>
+
+                <textarea
+                    id="wish"
+                    placeholder="Бегимайга жакшы каалооңузду жазыңыз...">
+                </textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                ЖӨНӨТҮҮ
+
+            </button>
+
+
+            <div
+                class="form-message"
+                id="formMessage">
+
+                🤍 Рахмат!
+                Каалооңуз кабыл алынды.
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final">
+
+    <img
+        src="photo2.jpg"
+        alt="Бегимай">
+
+    <div class="final-content">
+
+        <div class="ornament">
+            ✦ ❈ ✦
+        </div>
+
+        <h2>
+            Күтөбүз!
+        </h2>
+
+        <p>
+            КУБАНЫЧЫБЫЗДЫ ТЕҢ БӨЛҮШҮҢҮЗДҮ
+            КАЛАЙБЫЗ
+        </p>
+
+        <div class="final-name">
+            Бегимай
+        </div>
+
+        <div class="ornament">
+            ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    Бегимайдын Кыз узатуу тою 🤍
+
+    <br><br>
+
+    30 • 10 • 2026
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   OPEN INVITATION
+========================================================= */
+
+function openInvitation() {
+
+    const opening =
+        document.getElementById("opening");
+
+    opening.classList.add("hide");
+
+    playMusic();
+
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+
+function playMusic() {
+
+    music.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            musicBtn.innerHTML = "❚❚";
+
+        })
+        .catch(() => {
+
+            musicPlaying = false;
+
+        });
+
+}
+
+
+function toggleMusic() {
+
+    if (musicPlaying) {
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicBtn.innerHTML = "♫";
+
+    } else {
+
+        music.play();
+
+        musicPlaying = true;
+
+        musicBtn.innerHTML = "❚❚";
+
+    }
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const targetDate =
+    new Date(
+        "2026-10-30T11:00:00"
+    ).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        targetDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days").innerText = "00";
+
+        document.getElementById("hours").innerText = "00";
+
+        document.getElementById("minutes").innerText = "00";
+
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days")
+        .innerText =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .innerText =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .innerText =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .innerText =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("show");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => observer.observe(element)
+    );
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+function openImage(src) {
+
+    const lightbox =
+        document.getElementById(
+            "lightbox"
+        );
+
+    const image =
+        document.getElementById(
+            "lightboxImage"
+        );
+
+
+    image.src = src;
+
+    lightbox.classList.add(
+        "active"
+    );
+
+}
+
+
+function closeImage() {
+
+    document
+        .getElementById("lightbox")
+        .classList.remove(
+            "active"
+        );
+
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+document
+    .getElementById("rsvpForm")
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById(
+                    "guestName"
+                ).value;
+
+
+            const attendance =
+                document.getElementById(
+                    "attendance"
+                ).value;
+
+
+            const wish =
+                document.getElementById(
+                    "wish"
+                ).value;
+
+
+            console.log(
+                "Конок:",
+                name
+            );
+
+            console.log(
+                "Жооп:",
+                attendance
+            );
+
+            console.log(
+                "Каалоо:",
+                wish
+            );
+
+
+            document
+                .getElementById(
+                    "formMessage"
+                )
+                .style.display =
+                "block";
+
+
+            this.reset();
+
+        }
+    );
+
+
+/* =========================================================
+   FLOATING PETALS
+========================================================= */
+
+function createPetal() {
+
+    const petal =
+        document.createElement(
+            "div"
+        );
+
+    petal.className = "petal";
+
+    petal.innerHTML = "✿";
+
+
+    const size =
+        Math.random() * 10 + 10;
+
+    const left =
+        Math.random() * 100;
+
+    const duration =
+        Math.random() * 8 + 7;
+
+
+    petal.style.left =
+        left + "%";
+
+
+    petal.style.fontSize =
+        size + "px";
+
+
+    petal.style.animationDuration =
+        duration + "s";
+
+
+    document.body.appendChild(
+        petal
+    );
+
+
+    setTimeout(
+        () => petal.remove(),
+        duration * 1000
+    );
+
+}
+
+
+/* Ар бир 1.5 секундда гүлчө түшөт */
+
+setInterval(
+    createPetal,
+    1500
+);
+
+
+/* =========================================================
+   ESC — LIGHTBOX ЖАБУУ
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeImage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        setTimeout(
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".hero .reveal"
+                    )
+                    .forEach(
+                        element =>
+                            element.classList
+                                .add("show")
+                    );
+
+            },
+            300
+        );
+
+    }
+);
+
+</script>
+
+</body>
+  </html>
